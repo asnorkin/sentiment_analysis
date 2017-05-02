@@ -1,22 +1,58 @@
 <!doctype html>
 <html>
     <head>
-	<style>
-	    body {
-     		background-color: #E7DACA;
-	    }
-	</style>
-    </head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Goods binary sentiment analyzer</title>
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+	</head>
     <body>
-	<title>Goods binary sentiment analyzer</title>
-	<form action="{{ url_for('goods_binary_sentiment') }}" method=post>
-    	    <dl>
-            <dt>Enter a goods response<br>
-	    <dd><textarea name=text rows=5 cols=40>{{ text }}</textarea>
-	    <dd><input type=submit value="Evaluate">
-    	     </dl>
-	</form>
-	<br>Sentiment prediction:<br>
-	{{ prediction_message }}
+    	<div id="page" class="btn">
+    		<div id="header">
+	    		<div id="navigation">
+	    			<ul id="menu">
+	    				<li class="selected">
+	    					<a href="index.html">
+								Select
+							</a>
+						</li>
+						<li>
+							<a href="about.html">
+								About Us
+							</a>
+	    				</li>
+	    				<li>
+							<a href="algo.html">
+								Algorithms
+							</a>
+	    				</li>
+	    			</ul>
+	    		</div>
+	    	</div>
+	    	<div id="body">
+	    		<div class="internal">
+			    	<form action="{{ url_for('goods_binary_sentiment') }}" method=post>
+	    	    		<dl>
+		            		<dt>Enter a goods response<br>
+			    			<dd><textarea name=text rows=5 cols=40>{{ text }}</textarea>
+			    			<dd><input type="submit" value="Evaluate">
+	    	     		</dl>
+					</form>
+					<p>
+						<br>Sentiment prediction:<br>
+							{{ prediction_message }}
+					</p>
+			    </div>	
+	    	</div>
+	    	<div id="footer">
+	    		<div>
+					<div class="connect">
+						<a href="https://vk.com/potapart" class="vk">VK</a>
+
+					</div>
+					<p>Artem Potapov | Alexander Snorkin<br/>Semen Abramov | Sherbatov Kirill<br/>&copy; 2017. All rights reserved.</p>
+				</div>
+	    	</div>
+		</div>
     </body>
 </html>
