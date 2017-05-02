@@ -1,0 +1,12 @@
+<!doctype html>
+<title>Bank sentiment analyzer</title>
+<form action="{{ url_for('bank_sentiment') }}" method=post>
+    <dl>
+        <dt>Enter the bank response<br>
+	<dd><textarea name=text rows=5 cols=40>{{ text }}</textarea>
+	<dd><input type=submit value="Оценить">
+    </dl>
+</form>
+
+<br>Sentiment prediction:<br>
+{{ prediction_message }}

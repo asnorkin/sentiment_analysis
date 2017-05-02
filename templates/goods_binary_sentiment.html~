@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+	<style>
+	    body {
+     		background-color: #E7DACA;
+	    }
+	</style>
+    </head>
+    <body>
+	<title>Goods binary sentiment analyzer</title>
+	<form action="{{ url_for('goods_binary_sentiment') }}" method=post>
+    	    <dl>
+            <dt>Enter a goods response<br>
+	    <dd><textarea name=text rows=5 cols=40>{{ text }}</textarea>
+	    <dd><input type=submit value="Evaluate">
+    	     </dl>
+	</form>
+	<br>Sentiment prediction:<br>
+	{{ prediction_message }}
+    </body>
+</html>
