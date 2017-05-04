@@ -16,10 +16,15 @@ def return_json(func):
 def index():
     return render_template('index.html')
 
-@app.route('/get_vk_json/<publics>/<num_posts>')
+@app.route('/get_vk_json/', methods=['GET', 'POST'])
 @return_json
-def get_vk_info(publics, num_posts):
+def get_vk_info():
+    if request.method != 'POST':
+        return None
+
     provider = VkFeatureProvider()
+    publics = request.form['publics']
+    num_posts = request.form['num_post']
     return provider.get_news(publics, num_posts)
 
 ###############################################################################
