@@ -16,7 +16,7 @@ def return_json(func):
 def index():
     return render_template('index.html')
 
-@app.route('/get_vk_json/', methods=['GET', 'POST'])
+@app.route('/get_vk_json', methods=['GET', 'POST'])
 @return_json
 def get_vk_info():
     if request.method != 'POST':
@@ -28,11 +28,6 @@ def get_vk_info():
     if not publics or not num_posts:
         raise ValueError('Arguments are wrong publics: {}, num_posts: {}'
                          .format(publics, num_posts))
-
-    #session['news'] =
-    #return redirect(url_for('vk_sentiment'))
-    temop = jsonify(provider.get_news([publics], int(num_posts)))
-    print(temop)
 
     return provider.get_news([publics], int(num_posts))
 

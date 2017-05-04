@@ -3,14 +3,10 @@
  */
 // ignore this first line (its fidle mock) and it will return what ever you pass as json:... parameter... consider to change it to your ajax call
 $(function(){
-    var url = "/get_vk_json/";
+    var url = "/get_vk_json";
 
-    function successHandler (response) {
-        alert("Blabla");
-        res = $.parseJSON(response);
-        alert("2");
-        alert(res);
-        return res;
+    function successHandler (data) {
+        drawTable(data)
     }
 
     function errorHandler (xhr, status) {
@@ -19,19 +15,14 @@ $(function(){
 
     function formHandler(event) {
         event.preventDefault();
-        news = $.ajax({
+        $.ajax({
             url: url,
             type: "POST",
-            async: false,
-            crossDomain: false,
             data: $(this).serialize(),
             dataType: "json",
             success: successHandler,
             error: errorHandler
-        }).responseJSON;
-
-        alert("ssss");
-        alert(news);
+        });
     }
 
     $("#nkvd_form").submit(formHandler);
