@@ -31,22 +31,41 @@
 	    	</div>
 	    	<div id="body">
 	    		<div class="internal">
-			    	<form action="{{ url_for('movie_binary_sentiment') }}" method=post>
-    	    			<dl>
-            				<dt>Enter a movie response<br>
-	    					<dd><textarea name=text rows=5 cols=40>{{ text }}</textarea>
-	    					<dd><input type=submit value="Evaluate">
-    	    			 </dl>
-					</form>
-					<p>
-						<br>Sentiment prediction:<br>
-							{{ prediction_message }}
-					</p>
+			    	<div>
+				      <h1>Введите свои данные:</h1>
+				      <form id="nkvd_form" action="/form/register" method="POST">
+				        <div class="form_line">
+				          <div class="field_label">Паблики</div>
+				          <div class="field_container"><input name="first_name" placeholder="scientific.american"/></div>
+				        </div>
+				        <div class="form_line">
+				          <div class="field_label">Число записей</div>
+				          <div class="field_container"><input name="last_name" placeholder="10"/></div>
+				        </div>
+				        <div class="form_line">
+				          <input type="submit" value="Получить текст"/>
+				        </div>
+				      </form>
+				    </div>
+
+				    <table id="personDataTable">
+					    <tr>
+					        <th>Source</th>
+					        <th>Text</th>
+					    </tr>
+					    
+					</table>
 			    </div>	
 	    	</div>
 	    	<div id="footer">
 	    		<div>
-					<div class="connect">
+				<table id="personDataTable">
+    <tr>
+        <th>Source</th>
+        <th>Text</th>
+    </tr>
+    
+</table>	<div class="connect">
 						<a href="https://vk.com/potapart" class="vk">VK</a>
 
 					</div>
