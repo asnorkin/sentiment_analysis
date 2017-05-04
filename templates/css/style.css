@@ -1,0 +1,250 @@
+body {
+	margin: 0;
+	padding: 0;
+	position: center;
+	width: 100%;
+	background-color: #E7DACA;
+}
+
+body #page {
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+}
+
+input[type="button"] {
+	float: center;
+	position: center;
+	text-align: center;
+	background-color: #230672;
+	font-size: 44px;
+	color: #D1FFE8;
+ 	height: 200px;
+	width: 100%;
+	border: 8px solid #230672;
+	border-radius: 30px;
+}
+
+input[type="button"]:hover {
+	float: center;
+	position: center;
+	text-align: center;
+	background-color: #D1FFE8;
+	font-size: 44px;
+	color: #8A6ED7;
+ 	height: 200px;
+	width: 100%;
+	border: 8px solid #D1FFE8;
+	border-radius: 30px;
+}
+
+div {
+	margin: 0 auto;
+	display: table
+}
+
+/*HEADER*/
+
+#header {
+	background-color: #3C13AF;
+	margin: 0;
+	padding: 0;
+	float: center;
+	position: relative;
+	width: 100%;
+}
+
+#header div {
+	margin: 0 auto;
+    max-width: 100%;
+    min-height: 100%;
+    padding: 0 10px;
+    float: center;
+    position: center;
+}
+
+#header div ul {
+	display: block;
+    float: center;
+    position: center;
+    list-style: none outside none;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 102px 0 20px;
+    text-align: center;
+}
+
+#header div ul li {
+	display: inline-block;
+	*float: left; /* Needed for IE7 and old versions */
+	margin: 0 80px 80px 37px;
+	padding: 0;
+	width: auto;
+	float: center;
+	position: center;
+}
+
+#header div ul li a {
+	color: #A6FFFF;
+	font-family: "Arial Black";
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 16px;
+	margin: 10px 0 0 20px;
+	padding: 0;
+	text-align: center;
+	text-transform: uppercase;
+	width: auto;
+	float: center;
+	position: center;
+}
+
+#header div ul li.selected a, #header div ul li.selected a:hover {
+	color: #FF5C00;
+}
+
+#header div ul li a:hover {
+	color: #FFF100;
+}
+
+/*HEADER END*/
+
+/*BODY*/
+
+#body {
+	margin: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 400px;
+	padding: 0;
+	position: center;
+	background-color: #8A6ED7; 
+}
+
+#body div.internal {
+	margin: 60px 0 60px 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	position: center;
+}
+
+#body div.internal div.btn {
+	overflow: hidden;
+	width: 40%;
+	position: center;
+	float: center;
+}
+
+#body div.internal dl {
+	width: 100%;
+	position: center;
+}
+
+#body div.internal dl dt {
+	position: center;
+	text-align: center;
+	width: 100%;
+	font-family: "Arial Black";
+	font-size: 20px;
+	color: #FFF400;
+}
+
+#body div.internal dl dd {
+	width: 100%;
+	margin: 0 20px 0 0;
+	position: center;
+	text-align: center;
+}
+
+#body div.internal dl dd textarea {
+	position: center;
+	text-align: center;
+	font-size: 20px;
+	background-color: #FFFFFF;
+	color: #8A6ED7;
+}
+
+#body div.internal dl dd input {
+	position: center;
+	text-align: center;
+	font-size: 16px;
+	color: #FFFFFF;
+	background-color: #3C13AF;
+}
+
+#body div.internal dl dd input:hover {
+	position: center;
+	text-align: center;
+	font-size: 16px;
+	color: #3C13AF;
+	background-color: #8A6ED7;
+}
+
+#body div.internal p {
+	width: 100%;
+	position: center;
+	text-align: center;
+	font-size: 20px;
+	color: #FFF400;
+}
+
+/*BODY END*/
+
+/*FOOTER*/
+#footer {
+	background-color: #3C13AF;
+	margin: 0;
+	min-height: 122px;
+	padding: 0;
+	width: 100%;
+}
+#footer div {
+	margin: 0 auto;
+	max-width: 940px;
+	overflow: hidden;
+	padding: 47px 10px 42px;
+}
+#footer div p {
+	color: #D1FFE8;
+	float: left;
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: normal;
+	line-height: 15px;
+	margin: 0;
+	padding: 5px 0 0;
+	text-align: center;
+	text-transform: none;
+	width: 400px;
+}
+#footer div.connect {
+	display: block;
+	float: right;
+	height: 50px;
+	margin: 12px 0;
+	overflow: hidden;
+	padding: 0;
+	width: 50px;
+}
+#footer div.connect a {
+	background: url(../images/vk.png) no-repeat;
+	display: block;
+	float: left;
+	height: 35px;
+	margin: 0 7px;
+	padding: 0;
+	text-indent: -99999px;
+	width: 40px;
+}
+#footer div .connect a.vk {
+	background-position: 0 0;
+}
+
+#footer div .connect a.vk:hover {
+	background-position: -30px 0;
+}
+
+/*FOOTER*/
