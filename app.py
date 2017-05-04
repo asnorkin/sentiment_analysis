@@ -17,7 +17,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/get_vk_json/', methods=['GET', 'POST'])
-#@return_json
+@return_json
 def get_vk_info():
     if request.method != 'POST':
         return None
@@ -29,8 +29,12 @@ def get_vk_info():
         raise ValueError('Arguments are wrong publics: {}, num_posts: {}'
                          .format(publics, num_posts))
 
-    session['news'] = jsonify(provider.get_news([publics], int(num_posts)))
-    return redirect(url_for('vk_sentiment'))
+    #session['news'] =
+    #return redirect(url_for('vk_sentiment'))
+    temop = jsonify(provider.get_news([publics], int(num_posts)))
+    print(temop)
+
+    return provider.get_news([publics], int(num_posts))
 
 ###############################################################################
 #                               Models
@@ -86,4 +90,6 @@ def about():
     return render_template('about.html')
 
 if __name__ == "__main__":
+    app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+    app.debug = True
     app.run()
