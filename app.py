@@ -16,17 +16,15 @@ def return_json(func):
 def index():
     return render_template('index.html')
 
-@app.route('/get_vk_json')
+@app.route('/get_vk_json/<publics>/<num_posts>')
 @return_json
-def get_vk_info():
+def get_vk_info(publics, num_posts):
     provider = VkFeatureProvider()
-    publics, num_posts = [], 0
-
-    if request.method == 'POST':
-        pass
-
     return provider.get_news(publics, num_posts)
 
+###############################################################################
+#                               Models
+###############################################################################
 @app.route('/vk_sentiment', methods=['GET', 'POST'])
 def vk_sentiment():
     return render_template('vk_sentiment.html')
@@ -65,6 +63,17 @@ def goods_binary_sentiment():
         prediction_message = classifier.get_prediction_message(text)
 
     return render_template('goods_binary_sentiment.html', text=text, prediction_message=prediction_message)
+
+###############################################################################
+#                             Info pages
+###############################################################################
+@app.route('/algo.html')
+def algo():
+    return render_template('algo.html')
+
+@app.route('/about.html')
+def about():
+    return render_template('about.html')
 
 if __name__ == "__main__":
     app.run()
