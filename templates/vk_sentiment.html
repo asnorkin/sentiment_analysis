@@ -1,13 +1,12 @@
 <!doctype html>
-<html>
-    <head>
+	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Goods binary sentiment analyzer</title>
+		<title>Bank sentiment analyzer</title>
 		<link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='css/style.css')}}"">
 	</head>
-    <body>
-    	<div id="page" class="btn">
+	<body>
+		<div id="page" class="btn">
     		<div id="header">
 	    		<div id="navigation">
 	    			<ul id="menu">
@@ -31,17 +30,11 @@
 	    	</div>
 	    	<div id="body">
 	    		<div class="internal">
-			    	<form action="{{ url_for('movie_binary_sentiment') }}" method=post>
-    	    			<dl>
-            				<dt>Enter a movie response<br>
-	    					<dd><textarea name=text rows=5 cols=40>{{ text }}</textarea>
-	    					<dd><input type=submit value="Evaluate">
-    	    			 </dl>
-					</form>
-					<p>
-						<br>Sentiment prediction:<br>
-							{{ prediction_message }}
-					</p>
+			    	<form>
+						<div class="btn"><input class="button" type="button" value="Binary goods analyzer" onClick="location.href='goods_binary_sentiment'"></div>
+	    				<br/>
+	    				<div class="btn"><input class="button" type="button" value="Binary movie analyzer" onClick="location.href='movie_binary_sentiment'"></div>
+			    	</form>
 			    </div>	
 	    	</div>
 	    	<div id="footer">
@@ -54,7 +47,15 @@
 				</div>
 	    	</div>
 		</div>
-    </body>
-</html>
+	</body>
 
+<form action="{{ url_for('bank_sentiment') }}" method=post>
+    <dl>
+        <dt>Enter the bank response<br>
+	<dd><textarea name=text rows=5 cols=40>{{ text }}</textarea>
+	<dd><input type=submit value="Оценить">
+    </dl>
+</form>
 
+<br>Sentiment prediction:<br>
+{{ prediction_message }}
