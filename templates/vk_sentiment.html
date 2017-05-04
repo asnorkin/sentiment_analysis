@@ -1,17 +1,18 @@
 <!doctype html>
-	<head>
+<html>
+    <head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Bank sentiment analyzer</title>
+		<title>Goods binary sentiment analyzer</title>
 		<link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='css/style.css')}}"">
 	</head>
-	<body>
-		<div id="page" class="btn">
+    <body>
+    	<div id="page" class="btn">
     		<div id="header">
 	    		<div id="navigation">
 	    			<ul id="menu">
 	    				<li class="selected">
-	    					<a href="index.html">
+	    					<a href="/">
 								Select
 							</a>
 						</li>
@@ -30,32 +31,29 @@
 	    	</div>
 	    	<div id="body">
 	    		<div class="internal">
-			    	<form>
-						<div class="btn"><input class="button" type="button" value="Binary goods analyzer" onClick="location.href='goods_binary_sentiment'"></div>
-	    				<br/>
-	    				<div class="btn"><input class="button" type="button" value="Binary movie analyzer" onClick="location.href='movie_binary_sentiment'"></div>
-			    	</form>
+			    	<form action="{{ url_for('movie_binary_sentiment') }}" method=post>
+    	    			<dl>
+            				<dt>Enter a movie response<br>
+	    					<dd><textarea name=text rows=5 cols=40>{{ text }}</textarea>
+	    					<dd><input type=submit value="Evaluate">
+    	    			 </dl>
+					</form>
+					<p>
+						<br>Sentiment prediction:<br>
+							{{ prediction_message }}
+					</p>
 			    </div>	
 	    	</div>
 	    	<div id="footer">
 	    		<div>
 					<div class="connect">
-						<a href="https://vk.com/potapart" class="vk">facebook</a>
+						<a href="https://vk.com/potapart" class="vk">VK</a>
 
 					</div>
 					<p>Artem Potapov | Alexander Snorkin<br/>Semen Abramov | Sherbatov Kirill<br/>&copy; 2017. All rights reserved.</p>
 				</div>
 	    	</div>
 		</div>
-	</body>
+    </body>
+</html>
 
-<form action="{{ url_for('bank_sentiment') }}" method=post>
-    <dl>
-        <dt>Enter the bank response<br>
-	<dd><textarea name=text rows=5 cols=40>{{ text }}</textarea>
-	<dd><input type=submit value="Оценить">
-    </dl>
-</form>
-
-<br>Sentiment prediction:<br>
-{{ prediction_message }}
