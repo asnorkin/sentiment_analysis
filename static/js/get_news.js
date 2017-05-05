@@ -2,18 +2,41 @@
  * Created by alexander on 04.05.17.
  */
 // ignore this first line (its fidle mock) and it will return what ever you pass as json:... parameter... consider to change it to your ajax call
-$.ajax({
-    url: '/get_vk_json/',
-    type: "POST",
-    data: {
-        json: JSON.stringify(),
-        delay: 3
-    },
-    success: function(data, textStatus, jqXHR) {
-        // since we are using jQuery, you don't need to parse response
-        drawTable(data);
+$(function(){
+    var url = "/get_vk_json";
+
+    function successHandler (data) {
+        drawTable(data)
     }
-});
+
+    function errorHandler (xhr, status) {
+        alert("Что-то пошло не так");
+    }
+
+    function formHandler(event) {
+        event.preventDefault();
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: $(this).serialize(),
+            dataType: "json",
+            success: successHandler,
+            error: errorHandler
+        });
+    }
+
+    $("#nkvd_form").submit(formHandler);
+})
+
+// $.ajax({
+//     url: '/get_vk_json/',
+//     type: "POST",
+//     data: ,
+//     success: function(data, textStatus, jqXHR) {
+//         // since we are using jQuery, you don't need to parse response
+//         drawTable(data);
+//     }
+// });
 
 function drawTable(data) {
     for (var source_idx = 0; source_idx < data.length; source_idx++) {

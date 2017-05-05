@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 from sentiment_classifiers import SentimentClassifier, files, binary_dict
 from vk_parser import VkFeatureProvider
 import functools
@@ -16,16 +16,20 @@ def return_json(func):
 def index():
     return render_template('index.html')
 
-@app.route('/get_vk_json/', methods=['GET', 'POST'])
+@app.route('/get_vk_json', methods=['GET', 'POST'])
 @return_json
 def get_vk_info():
     if request.method != 'POST':
         return None
 
     provider = VkFeatureProvider()
-    publics = request.form['publics']
-    num_posts = request.form['num_post']
-    return provider.get_news(publics, num_posts)
+    publics = request.form.get('publics', None)
+    num_posts = request.form.get('num_posts', None)
+    if not publics or not num_posts:
+        raise ValueError('Arguments are wrong publics: {}, num_posts: {}'
+                         .format(publics, num_posts))
+
+    return provider.get_news([publics], int(num_posts))
 
 ###############################################################################
 #                               Models
@@ -81,4 +85,6 @@ def about():
     return render_template('about.html')
 
 if __name__ == "__main__":
+    app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+    app.debug = True
     app.run()
