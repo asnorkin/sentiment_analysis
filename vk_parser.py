@@ -18,13 +18,13 @@ class VkFeatureProvider(object):
 
         for source in sources:
             try:
-                data = self._vk_api.wall.get(domain=source, count=amount)
+                data = self._vk_api.wall.get(domain=source, count=amount, extended=1, fields='name')
                 self._vk_grace()
             except:
                 return {}
 
             news = []
-            for node in data[1:]:
+            for node in data['wall'][1:]:
                 try:
                     if node['post_type'] != 'post':
                         continue
@@ -35,7 +35,7 @@ class VkFeatureProvider(object):
                 except Exception as e:
                     print('Exception: {}'.format(e))
 
-            result.append({'source' : source, 'news' : news})
+            result.append({'source': data['groups'][0]['name'], 'news': news})
         #return json.dumps(result)
         return result
 
