@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify, session, redirect, u
 from sentiment_classifiers import SentimentClassifier, files, binary_dict
 from vk_parser import VkFeatureProvider
 import functools
+import re
 
 app = Flask(__name__)
 
@@ -29,7 +30,8 @@ def get_vk_info():
         raise ValueError('Arguments are wrong publics: {}, num_posts: {}'
                          .format(publics, num_posts))
 
-    return provider.get_news([publics], int(num_posts))
+    publics = re.findall(r'[\w.]+', publics)
+    return provider.get_news(publics, int(num_posts))
 
 ###############################################################################
 #                               Models
