@@ -93,9 +93,9 @@ div {
 #header div ul li a {
 	color: #A6FFFF;
 	font-family: "Arial Black";
-	font-size: 20px;
+	font-size: 14px;
 	font-weight: bold;
-	line-height: 16px;
+	line-height: 20px;
 	margin: 10px 0 0 20px;
 	padding: 0;
 	text-align: center;
@@ -140,7 +140,7 @@ div {
 	float: center;
 }
 
-/* FORM description begins*/
+/* FORM_vk description begins*/
 
 #body div.internal div.form {
 	margin: 10px 10px 10px 10px;
@@ -156,7 +156,7 @@ div {
 	width: 100%;
 }
 
-#body div.internal div.form form {
+#body div.internal div.form form.vk {
 	width: 100%;
 }
 
@@ -172,13 +172,13 @@ div {
 	position: relative;
 }
 
-#body div.internal div.form form div.form_line {
+#body div.internal div.form form.vk div.form_line {
 	margin-top: 0;
 	overflow: hidden;
 	position: relative;
 }
 
-#body div.internal div.form form div.form_line div.field_label {
+#body div.internal div.form form.vk div.form_line div.field_label {
 	margin: 0;
 	overflow: hidden;
 	font-size: 18px;
@@ -186,13 +186,13 @@ div {
 	position: relative;
 }
 
-#body div.internal div.form form div.form_line div.field_container {
+#body div.internal div.form form.vk div.form_line div.field_container {
 	margin-top: 5px;
 	overflow: hidden;
 	position: relative;
 }
 
-#body div.internal div.form form div.form_line div.field_container input {
+#body div.internal div.form form.vk div.form_line div.field_container input {
 	width: 100%;
 	font-size: 14px;
 	text-align: center;
@@ -201,14 +201,14 @@ div {
 	border-radius: 5px;
 }
 
-#body div.internal div.form form div.form_line1 {
+#body div.internal div.form form.vk div.form_line1 {
 	margin: 0;
 	overflow: hidden;
 	height: 30px;
 	position: relative;
 }
 
-#body div.internal div.form form div.form_line1 input {
+#body div.internal div.form form.vk div.form_line1 input {
 	margin-top: 10px;
 	overflow: hidden;
 	width: 144px;
@@ -220,7 +220,7 @@ div {
 	background-color: #3C13AF;
 }
 
-#body div.internal div.form form div.form_line1 input:hover {
+#body div.internal div.form form.vk div.form_line1 input:hover {
 	margin-top: 10px;
 	overflow: hidden;
 	width: 144px;
@@ -232,7 +232,71 @@ div {
 	font-size: 16px;
 }
 
-/* FORM description ends*/
+/* FORM_vk  description ends*/
+
+#body div.internal div.form form.login div.form_line {
+	margin-top: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+#body div.internal div.form form.login div.form_line div.field_label {
+	margin: 0;
+	overflow: hidden;
+	font-size: 18px;
+	color: #A6FFFF;
+	position: relative;
+}
+
+#body div.internal div.form form.login div.form_line div.field_container {
+	margin-top: 5px;
+	overflow: hidden;
+	position: relative;
+}
+
+#body div.internal div.form form.login div.form_line div.field_container input {
+	width: 100%;
+	font-size: 14px;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+	border-radius: 5px;
+}
+
+#body div.internal div.form form.login div.form_line1 {
+	margin: 0;
+	overflow: hidden;
+	height: 30px;
+	position: relative;
+}
+
+#body div.internal div.form form.login div.form_line1 input {
+	margin-top: 10px;
+	overflow: hidden;
+	width: 144px;
+	height: 30px;
+	position: relative;
+	border-radius: 10px;
+	font-size: 16px;
+	color: #FFFFFF;
+	background-color: #3C13AF;
+}
+
+#body div.internal div.form form.login div.form_line1 input:hover {
+	margin-top: 10px;
+	overflow: hidden;
+	width: 144px;
+	height: 30px;
+	position: relative;
+	color: #3C13AF;
+	background-color: #00FF00;
+	border-radius: 10px;
+	font-size: 16px;
+}
+
+/*FORM_login begins*/
+
+/*FORM_login ends*/
 
 /* TABLE description starts*/
 
