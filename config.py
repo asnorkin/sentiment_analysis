@@ -1,5 +1,4 @@
 import os
-from common.constants import INSTANCE_FOLDER_PATH
 
 
 class BaseConfig(object):
