@@ -45,6 +45,7 @@ function drawTable(data) {
     hd.append($("<th> " + "Публикация" + "</th>"));
     hd.append($("</tr>"));
     hd.append($("</thead>"));
+    $("#personDataTable").empty();
     $("#personDataTable").append(hd);
 
     var row = $("<tbody>")
