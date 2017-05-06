@@ -39,6 +39,16 @@ $(function(){
 // });
 
 function drawTable(data) {
+    var hd = $("<thead>")
+    hd.append($("<tr>"));
+    hd.append($("<th>" + "Паблик" + "</th>"));
+    hd.append($("<th> " + "Публикация" + "</th>"));
+    hd.append($("</tr>"));
+    hd.append($("</thead>"));
+    $("#personDataTable").append(hd);
+
+    var row = $("<tbody>")
+    $("#personDataTable").append(row);
     for (var source_idx = 0; source_idx < data.length; source_idx++) {
     		title = data[source_idx].source;
         posts = data[source_idx].news;
@@ -47,14 +57,16 @@ function drawTable(data) {
         		drawRow(title, post);
         }
     }
+    row = $("</tbody>")
+    $("#personDataTable").append(row);
 }
 
 function drawRow(title, post) {
-		var row = $("<tr />")
+	var row = $("<tr />")
     if (post.rate == 1) {
-    	row = $("<tr bgcolor=\"#FA8075\">")
+    	row = $("<tr class=\"good\">")
     } else {
-    	row = $("<tr bgcolor=\"#0F00FF\">")
+    	row = $("<tr class=\"bad\">")
     }
     $("#personDataTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
 

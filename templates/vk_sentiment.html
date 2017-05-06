@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/get_news.js') }}"></script>
-		<title>Goods binary sentiment analyzer</title>
+		<title>VK sentiment analyzer</title>
 		<link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='css/style.css')}}">
 	</head>
     <body>
@@ -33,38 +33,30 @@
 	    	</div>
 	    	<div id="body">
 	    		<div class="internal">
-			    	<div>
-				      <h1>Введите свои данные:</h1>
-				      <form id="nkvd_form">
-				        <div class="form_line">
-				          <div class="field_label">Паблики</div>
-				          <div class="field_container"><input name="publics" placeholder="scientific.american"/></div>
-				        </div>
-				        <div class="form_line">
-				          <div class="field_label">Число записей</div>
-				          <div class="field_container"><input name="num_posts" placeholder="10"/></div>
-				        </div>
-				        <div class="form_line">
-				          <input type="submit" value="Получить текст"/>
-				        </div>
-				      </form>
+			    	<div class="form">
+				      	<form id="nkvd_form">
+				      		<h1 align="center">Введите свои данные:</h1>
+					        <div class="form_line">
+					          <div class="field_label">Паблики</div>
+					          <div class="field_container"><input name="publics" placeholder="Enter public..."/>
+					        </div>
+					        </div>
+					        <div class="form_line">
+					          <div class="field_label">Число записей</div>
+					          <div class="field_container"><input name="num_posts" placeholder="Number of publications"/></div>
+					        </div>
+					        <div class="form_line1">
+					          <input type="submit" value="Получить текст"/>
+					        </div>
+				      	</form>
 				    </div>
-
-				    <table id="personDataTable">
-					    <tr>
-					        <th>Source</th>
-					        <th>Text</th>
-					    </tr>
-					    
-					</table>
-			    </div>	
-	    	</div>
+				    <div class="table-container">
+					    <table id="personDataTable">
+					    </table>
+					</div>	
+	    		</div>
 	    	<div id="footer">
 	    		<div>
-					<div class="connect">
-						<a href="https://vk.com/potapart" class="vk">VK</a>
-
-					</div>
 					<p>Artem Potapov | Alexander Snorkin<br/>Semen Abramov | Sherbatov Kirill<br/>&copy; 2017. All rights reserved.</p>
 				</div>
 	    	</div>
