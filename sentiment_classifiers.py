@@ -35,8 +35,8 @@ class SentimentClassifier():
             have_predict_proba = getattr(self.model, 'predict_proba', None)
             prob = 0.95 if not have_predict_proba else self.model.predict_proba([text])[0].max()
             return pred, prob
-        except:
-            print "prediction error"
+        except Exception as e:
+            print("Prediction error: {}".format(e))
             return -1, 0.8
 
     def get_prediction_message(self, text):

@@ -1,11 +1,56 @@
-from flask import Flask, render_template, request, jsonify, session, redirect, url_for
-from sentiment_classifiers import SentimentClassifier, files, binary_dict
-from vk_parser import VkFeatureProvider
 import functools
 import re
+import os
+
+from flask import Flask, render_template, request, jsonify
+from extensions import db, login_manager, csrf
+import config
+
+from sentiment_classifiers import SentimentClassifier, files, binary_dict
+from vk_parser import VkFeatureProvider
 
 app = Flask(__name__)
+###############################################################################
+#                           App managing function
+###############################################################################
+def create_app(cfg=None, app_name=None):
+    """Create a Flask app."""
 
+    if app_name is None:
+        app_name = config.DefaultConfig.PROJECT
+
+    app = Flask(app_name) # TODO: check params
+    configure_app(app, cfg)
+    configure_extensions(app)
+
+    return app
+
+def configure_app(app, cfg=None):
+    if not cfg:
+        cfg = config.DefaultConfig
+
+    app.config.from_object(cfg)
+
+    application_mode = os.getenv('APPLICATION_MODE', 'LOCAL')
+    app.config.from_object(config.get_config(application_mode))
+
+def configure_extensions(app):
+    db.init_app(app)
+
+    login_manager.login_view = 'frontend.login'
+    login_manager.refresh_view = 'frontend.login'
+
+    @login_manager
+    def load_user(id):
+        pass # TODO: make it works
+        #return user.query.get(id)
+
+    login_manager.setup_app(app)
+    csrf.init_app(app)
+
+###############################################################################
+#
+###############################################################################
 def return_json(func):
     @functools.wraps(func)
     def inner(*args, **kwargs):
