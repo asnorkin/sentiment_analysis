@@ -20,6 +20,7 @@ class VkFeatureProvider(object):
             try:
                 data = self._vk_api.wall.get(domain=source, count=amount, extended=1, fields='name')
                 self._vk_grace()
+                print(data)
             except:
                 return {}
 
@@ -36,52 +37,5 @@ class VkFeatureProvider(object):
                     print('Exception: {}'.format(e))
 
             result.append({'source': data['groups'][0]['name'], 'news': news})
-        #return json.dumps(result)
-        return result
 
-    # NOTE: the completely other feature, very usefull personally for me
-    def friends_intersect(self, uid_list):
-        result = None
-        try:
-            result = set(self._vk_api.friends.get(user_id=uid_list[0]))
-            self._vk_grace()
-        except:
-            pass
-        for i, uid in enumerate(uid_list[1:]):
-            try:
-                tmp = set(self._vk_api.friends.get(user_id=uid))
-                self._vk_grace()
-            except:
-                continue
-            if result is not None:
-                result = result.intersection(tmp)
-            else:
-                result = tmp
-        return result
-
-    def get_user_info(self, entry_uid, fname=None, lname=None):
-        try:
-            friend_list = self._vk_api.friends.get(user_id=entry_uid, fields='personal', name_case='nom')
-            self._vk_grace()
-        except:
-            return []
-
-        return [x for x in friend_list
-                if (not fname or fname in x['first_name']) and (not lname or lname in x['last_name'])]
-
-    def get_uid_set_info(self, uid_set):
-        result = []
-        for friend_uid in uid_set:
-            try:
-                friend = self._vk_api.users.get(user_id=friend_uid, fields='sex,personal', name_case='nom')
-                self._vk_grace()
-            except:
-                continue
-            result.append(friend)
-
-        return result
-
-if __name__ == '__main__':
-    provider = VkFeatureProvider()
-    res = provider.get_news(['scientific.american'], 5)
-    print(res)
+        return {'data': result}

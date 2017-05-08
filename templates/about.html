@@ -1,68 +1,91 @@
 <!doctype html>
+<html lang="en">
 <html>
-    <head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>About us</title>
-		<link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='css/style.css')}}"">
-	</head>
-    <body>
-    	<div id="page" class="btn">
-    		<div id="header">
-	    		<div id="navigation">
-	    			<ul id="menu">
-	    				<li>
-	    					<a href="/">
-								Select
-							</a>
-						</li>
-						<li class="selected">
-							<a href="about.html">
-								About Us
-							</a>
-	    				</li>
-	    				<li>
-							<a href="algo.html">
-								Algorithms
-							</a>
-	    				</li>
-	    				<li>
-							<a href="login.html">
-								Log Out
-							</a>
-	    				</li>
-	    			</ul>
-	    		</div>
-	    	</div>
-	    	<div id="body">
-	    		<div class="internal">
-					<div class="participants">
-					    <table class="We">
-					    	<tr><td class="name">Артем Потапов, ФРТК, 311 гр.</td><td class="link"><div class="connect">
-								<a href="https://vk.com/potapart" class="vk"></a>
-								</div></td>
-							</tr>
-					    	<tr><td class="name">Кирилл Щербатов, ФУПМ, 376гр.</td><td class="link"><div class="connect">
-								<a href="https://vk.com/kshcherbatov" class="vk"></a>
-								</div></td>
-							</tr>
-					    	<tr><td class="name">Семен Абрамов, ФРТК, 311 гр.</td><td class="link"><div class="connect">
-								<a href="https://vk.com/abramov07" class="vk"></a>
-								</div></td>
-							</tr>
-					    	<tr><td class="name">Александр Сноркин, ФРТК, 311 гр.</td><td class="link"><div class="connect">
-								<a href="https://vk.com/id176242617" class="vk"></a>
-								</div></td>
-							</tr>
-					    </table>
-					</div>
-			    </div>	
-	    	</div>
-	    	<div id="footer">
-	    		<div>
-					<p>Artem Potapov | Alexander Snorkin<br/>Semen Abramov | Shcherbatov Kirill<br/>&copy; 2017. All rights reserved.</p>
-				</div>
-	    	</div>
+<head>
+	<title>SmartNews</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/get_news.js') }}"></script>
+
+    <style>
+	/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+	.row.content {height: 1500px}
+
+	/* Set gray background color and 100% height */
+	.sidenav {
+	  background-color: #f1f1f1;
+	  height: 100%;
+	}
+
+	/* Set black background color, white text and some padding */
+	footer {
+	  background-color: #333;
+	  color: white;
+	  padding: 15px;
+	}
+
+	/* On small screens, set height to 'auto' for sidenav and grid */
+	@media screen and (max-width: 767px) {
+	  .sidenav {
+		height: auto;
+		padding: 15px;
+	  }
+	  .row.content {height: auto;}
+	}
+	</style>
+</head>
+
+<body>
+
+<footer class="container-fluid">
+  <div align=left>
+  <h2>SmartNews</h2>
+  </div>
+</footer>
+
+<div class="container-fluid">
+	<div class="row content">
+		<div class="col-sm-3 sidenav">
+		  <h4>Navigation</h4>
+		  <br>
+		  <ul class="nav nav-pills nav-stacked">
+			<li><a href="/">Functions</a></li>
+			<li class="active"><a href="about.html">About Us</a></li>
+			<li><a href="algo.html">Algorithms</a></li>
+			<li><a href="login.html">Log Out</a></li>
+		  </ul><br>
 		</div>
-    </body>
+
+		<div class="col-sm-9">
+			<h4><small>About Us</small></h4>
+			<hr>
+			 <p>
+			 Квалификационная работа по сетевым технологиям.<br>
+			 Стек технологий - Skylearn, Flask, jQuery, Bootstrap, SQLite <br>
+			 <br>
+			 Профили ВКонтакте
+			 </p>
+			 <div class="list-group">
+			  <a href="https://vk.com/potapart" class="list-group-item">Артем Потапов, ФРТК, 311 гр.</a>
+			  <a href="https://vk.com/kshcherbatov" class="list-group-item">Кирилл Щербатов, ФУПМ, 376гр.</a>
+			  <a href="https://vk.com/abramov07" class="list-group-item">Семен Абрамов, ФРТК, 311 гр.</a>
+			  <a href="https://vk.com/id176242617" class="list-group-item">Александр Сноркин, ФРТК, 311 гр.</a>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<footer class="container-fluid">
+  <div align=center>
+  Designed by Artem Potapov, Alexander Snorkin, Semen Abramov, Shcherbatov Kirill <br>
+  &copy;  2017. All rights reserved.
+  </div>
+</footer>
+
+</body>
 </html>
