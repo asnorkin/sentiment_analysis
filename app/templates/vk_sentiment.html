@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/get_news.js') }}"></script>
+		<title>VK sentiment analyzer</title>
+		<link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='css/style.css')}}">
+	</head>
+    <body>
+    	<div id="page" class="btn">
+    		<div id="header">
+	    		<div id="navigation">
+	    			<ul id="menu">
+	    				<li class="selected">
+	    					<a href="/">
+								Select
+							</a>
+						</li>
+						<li>
+							<a href="about.html">
+								About Us
+							</a>
+	    				</li>
+	    				<li>
+							<a href="algo.html">
+								Algorithms
+							</a>
+	    				</li>
+	    				<li>
+							<a href="login.html">
+								Log Out
+							</a>
+	    				</li>
+	    			</ul>
+	    		</div>
+	    	</div>
+	    	<div id="body">
+	    		<div class="internal">
+			    	<div class="form">
+				      	<form class="vk" id="nkvd_form">
+				      		<h1 align="center">Введите свои данные:</h1>
+					        <div class="form_line">
+					          <div class="field_label">Паблики</div>
+					          <div class="field_container"><input name="publics" placeholder="Enter public..."/>
+					        </div>
+					        </div>
+					        <div class="form_line">
+					          <div class="field_label">Число записей</div>
+					          <div class="field_container"><input name="num_posts" placeholder="Number of publications"/></div>
+					        </div>
+					        <div class="form_line1">
+					          <input type="submit" value="Получить текст"/>
+					        </div>
+				      	</form>
+				    </div>
+				    <div class="table-container">
+					    <table id="personDataTable">
+					    </table>
+					</div>	
+	    		</div>
+	    	<div id="footer">
+	    		<div>
+					<p>Artem Potapov | Alexander Snorkin<br/>Semen Abramov | Shcherbatov Kirill<br/>&copy; 2017. All rights reserved.</p>
+				</div>
+	    	</div>
+		</div>
+    </body>
+</html>
+

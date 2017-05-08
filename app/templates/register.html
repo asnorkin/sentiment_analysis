@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/get_news.js') }}"></script>
+		<title>Register</title>
+		<link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='css/style.css')}}">
+	</head>
+    <body>
+    	<div id="page" class="btn">
+    		<div id="header">
+	    		<div id="navigation">
+	    			<ul id="menu">
+	    				<li>
+							<a href="login.html">
+								Log In
+							</a>
+	    				</li>
+	    			</ul>
+	    		</div>
+	    	</div>
+	    	<div id="body">
+	    		<div class="internal">
+			    	<div class="form">
+				      	<form class="login" id="register">
+				      		<h1 align="center">Введите свои данные:</h1>
+					        <div class="form_line">
+					          <div class="field_label">Логин</div>
+					          <div class="field_container"><input name="publics" placeholder="Enter public..."/>
+					        </div>
+					        </div>
+					        <div class="form_line">
+					          <div class="field_label">Пароль</div>
+					          <div class="field_container"><input name="num_posts" placeholder="Number of publications"/></div>
+					        </div>
+					        <div class="form_line1">
+					          <input type="submit" value="Зарегистрироваться"/>
+					        </div>
+				      	</form>
+				    </div>	
+	    		</div>
+	    	<div id="footer">
+	    		<div>
+					<p>Artem Potapov | Alexander Snorkin<br/>Semen Abramov | Shcherbatov Kirill<br/>&copy; 2017. All rights reserved.</p>
+				</div>
+	    	</div>
+		</div>
+    </body>
+</html>
