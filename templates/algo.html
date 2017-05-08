@@ -1,51 +1,83 @@
 <!doctype html>
+<html lang="en">
 <html>
-    <head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Algorithms</title>
-		<link rel = "stylesheet" type = "text/css" href="{{ url_for('static', filename='css/style.css')}}"">
-	</head>
-    <body>
-    	<div id="page" class="btn">
-    		<div id="header">
-	    		<div id="navigation">
-	    			<ul id="menu">
-	    				<li>
-	    					<a href="/">
-								Select
-							</a>
-						</li>
-						<li>
-							<a href="about.html">
-								About Us
-							</a>
-	    				</li>
-	    				<li class="selected">
-							<a href="algo.html">
-								Algorithms
-							</a>
-	    				</li>
-	    				<li>
-							<a href="login.html">
-								Log Out
-							</a>
-	    				</li>
-	    			</ul>
-	    		</div>
-	    	</div>
-	    	<div id="body">
-	    		<div class="internal">
-					<p>
-						Algorithm description!
-					</p>
-			    </div>	
-	    	</div>
-	    	<div id="footer">
-	    		<div>
-					<p>Artem Potapov | Alexander Snorkin<br/>Semen Abramov | Shcherbatov Kirill<br/>&copy; 2017. All rights reserved.</p>
-				</div>
-	    	</div>
+<head>
+	<title>SmartNews</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/get_news.js') }}"></script>
+
+    <style>
+	/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+	.row.content {height: 1500px}
+
+	/* Set gray background color and 100% height */
+	.sidenav {
+	  background-color: #f1f1f1;
+	  height: 100%;
+	}
+
+	/* Set black background color, white text and some padding */
+	footer {
+	  background-color: #333;
+	  color: white;
+	  padding: 15px;
+	}
+
+	/* On small screens, set height to 'auto' for sidenav and grid */
+	@media screen and (max-width: 767px) {
+	  .sidenav {
+		height: auto;
+		padding: 15px;
+	  }
+	  .row.content {height: auto;}
+	}
+	</style>
+</head>
+
+<body>
+
+<footer class="container-fluid">
+  <div align=left>
+  <h2>SmartNews</h2>
+  </div>
+</footer>
+
+<div class="container-fluid">
+	<div class="row content">
+		<div class="col-sm-3 sidenav">
+		  <h4>Navigation</h4>
+		  <br>
+		  <ul class="nav nav-pills nav-stacked">
+			<li><a href="/">Functions</a></li>
+			<li><a href="about.html">About Us</a></li>
+			<li class="active"><a href="algo.html">Algorithms</a></li>
+			<li><a href="login.html">Log Out</a></li>
+		  </ul><br>
 		</div>
-    </body>
+
+		<div class="col-sm-9">
+			<h4><small>Algorithms</small></h4>
+			<hr>
+			 <p>
+			 Очень крутой алгоритм от Сани. <br>
+			 Реально крутой алгоритм. Не спорь. <br>
+			 С русским не работает - ну и хрен с ним.
+			 </p>
+		</div>
+	</div>
+</div>
+
+<footer class="container-fluid">
+  <div align=center>
+  Designed by Artem Potapov, Alexander Snorkin, Semen Abramov, Shcherbatov Kirill <br>
+  &copy;  2017. All rights reserved.
+  </div>
+</footer>
+
+</body>
 </html>
