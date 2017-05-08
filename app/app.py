@@ -49,6 +49,9 @@ def configure_app(app, cfg=None):
 def configure_extensions(app):
     db.init_app(app)
 
+    with app.app_context():
+        db.create_all()
+
     @login_manager.user_loader
     def load_user(id):
         return user.query.get(id)

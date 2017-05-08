@@ -59,8 +59,8 @@ class User(db.Model, UserMixin, UserJsonSerializer):
       
     @classmethod
     def is_user_name_taken(cls, user_name):
-        return db.session.query(db.exists().where(User.user_name==user_name)).scalar()
+        return db.session.query(db.exists().where(User.user_name == user_name)).scalar()
       
     @classmethod
     def is_email_taken(cls, email_address):
-        return db.session.query(db.exists().where(User.email==email_address)).scalar()
+        return db.session.query(db.exists().where(User.email == email_address)).scalar()

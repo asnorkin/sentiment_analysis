@@ -15,7 +15,9 @@ class BaseConfig(object):
     # http://flask.pocoo.org/docs/quickstart/#sessions
     SECRET_KEY = 'secret key'
 
+    SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_RECORD_QUERIES = True
 
 
 class DefaultConfig(BaseConfig):

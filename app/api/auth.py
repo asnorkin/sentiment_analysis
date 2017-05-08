@@ -76,11 +76,12 @@ def signup():
             db.session.commit()
 
         except Exception as e:
+            print('Exception occured during creating new user: {}'.format(e))
             return response.make_exception_resp(exception=e)
 
         # log the user in
         login_user(user)
         return response.make_success_resp(msg='You successfully signed up! '
                                           'Please check your email for further verification.')
-
+    print('!')
     return response.make_form_error_resp(form=form)

@@ -1,16 +1,16 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import (BooleanField, TextField, HiddenField, PasswordField, 
    DateTimeField, validators, IntegerField, SubmitField)
 import user_constants
 
 
-class LoginForm(Form):
+class LoginForm(FlaskForm):
     login = TextField('user_name', [validators.Required()])
     password  = TextField('password',  [validators.Required()])
     remember_me = BooleanField('remember_me', default = False)
 
 
-class SignupForm(Form):
+class SignupForm(FlaskForm):
     user_name = TextField('user_name',   [
       validators.Length(
          min=user_constants.MIN_USERNAME_LEN,
