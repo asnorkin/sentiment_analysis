@@ -15,31 +15,32 @@ $(document).ready(function(){
    // setup logged out view
    $("#logged-out-view #login-form").submit(function(e){
       e.preventDefault();
-      var form = $(this);
-      var loginData = extractFormInput(form);
+         var form = $(this);
+         var loginData = extractFormInput(form);
 
-      login(loginData)
-         .done(function(response){
-            showLoggedIn(response.data.user_name)
-            form.trigger('reset');
-         }).fail(function(response){
-            alert('username or password is wrong');
-         });
+         login(loginData)
+            .done(function(response){
+               showLoggedIn(response.data.user_name)
+               form.trigger('reset');
+            }).fail(function(response){
+               alert('username or password is wrong');
+            });
    });
 
    // setup logged in view
    $('#logged-in-view button').click(function(){
+      if($(this).attr("value")=="LogOutButton") {
       logout()
          .done(function(response){
             showLoggedout()
          }).fail(function(response){
             showLoggedIn();
          });
-   });
-
-   $('#logged-in-view button_start').click(function(){
-      var url = '/index';
-      window.location.href = url;
+      } 
+      if($(this).attr("value")=="StartButton") {
+         var url = '/index';
+         window.location.href = url;
+      }
    });
 
    // setup signup view
