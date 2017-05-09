@@ -5,6 +5,7 @@ from flask import (Flask, Blueprint, render_template, current_app, request,
                    flash, url_for, redirect, session, abort, jsonify, send_from_directory)
 from ..common.helpers import return_json
 from ..providers import VkFeatureProvider
+from ..providers.sentiment_classifiers import SentimentClassifier, files, binary_dict
 import re
 
 
@@ -37,3 +38,45 @@ def get_vk_info():
 
     publics = re.findall(r'[\w.]+', publics)
     return provider.get_news(publics, int(num_posts))
+
+
+###############################################################################
+#                           Classifier pages
+###############################################################################
+@frontend.route('/movie_binary_sentiment', methods=['GET', 'POST'])
+def movie_binary_sentiment():
+    classifier = SentimentClassifier(files['binary_movie'], binary_dict)
+
+    text = ''
+    prediction_message = ''
+    if request.method == 'POST':
+        text = request.form['text']
+        prediction_message = classifier.get_prediction_message(text)
+
+    return render_template('movie_binary_sentiment.html', text=text, prediction_message=prediction_message)
+
+
+@frontend.route('/goods_binary_sentiment', methods=['GET', 'POST'])
+def goods_binary_sentiment():
+    classifier = SentimentClassifier(files['binary_goods'], binary_dict)
+
+    text = ''
+    prediction_message = ''
+    if request.method == 'POST':
+        text = request.form['text']
+        prediction_message = classifier.get_prediction_message(text)
+
+    return render_template('goods_binary_sentiment.html', text=text, prediction_message=prediction_message)
+
+
+###############################################################################
+#                             Info pages
+###############################################################################
+@frontend.route('/algo.html')
+def algo():
+    return render_template('algo.html')
+
+
+@frontend.route('/about.html')
+def about():
+    return render_template('about.html')
