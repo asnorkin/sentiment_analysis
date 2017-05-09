@@ -14,8 +14,13 @@ frontend = Blueprint('frontend', __name__)
 
 @frontend.route('/')
 @frontend.route('/<path:path>')
-def index(path=None):
+def auth(path=None):
     return render_template('app.html')
+
+
+@frontend.route('/index')
+def index():
+    return render_template('index.html')
 
 
 @frontend.route('/vk_sentiment', methods=['GET', 'POST'])
