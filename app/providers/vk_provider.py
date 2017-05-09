@@ -1,12 +1,11 @@
 import vk
-import json
 from sentiment_classifiers import SentimentClassifier, binary_dict, files
 
 class VkFeatureProvider(object):
     def __init__(self):
         self._vk_api = vk.API(vk.Session())
         self._vk_delay = 0.3
-        self._clf = None #SentimentClassifier(files['binary_goods'], binary_dict)
+        self._clf = SentimentClassifier(files['binary_goods'], binary_dict)
 
     def _vk_grace(self):
         import time
@@ -20,7 +19,7 @@ class VkFeatureProvider(object):
             try:
                 data = self._vk_api.wall.get(domain=source, count=amount, extended=1, fields='name')
                 self._vk_grace()
-                print(data)
+                #print(data)
             except:
                 return {}
 
@@ -31,7 +30,7 @@ class VkFeatureProvider(object):
                         continue
                     text = node['text']
                     #print('{}'.format(text.encode('utf-8')))
-                    rate = 1 #self._clf.predict_text(text)[0]
+                    rate = self._clf.predict_text(text)[0]
                     news.append({'text' : '{}'.format(text.encode('utf-8')), 'rate' : rate})
                 except Exception as e:
                     print('Exception: {}'.format(e))

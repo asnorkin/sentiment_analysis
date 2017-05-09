@@ -30,7 +30,7 @@ function showLoggedIn(username) {
 function showLoggedout() {
    // show logged out view
    var url = '/';
-   
+
    alert("Hey buddy, you're not authorized!");
    window.location.href = url;
 }

@@ -1,9 +1,10 @@
-from sklearn.externals import joblib
+import pickle
+import os
 
 files = {
-    'binary_movie': 'binary_movie_clf.pkl',
-    'bank': 'bank_clf.pkl',
-    'binary_goods': 'binary_goods_clf.pkl',
+    'binary_movie': '/binary_movie_clf.pkl',
+    'bank': '/bank_clf.pkl',
+    'binary_goods': '/binary_goods_clf.pkl',
 }
 
 binary_dict = {
@@ -15,8 +16,9 @@ binary_dict = {
 
 class SentimentClassifier():
     def __init__(self, model_file, classes_dict):
-        print()
-        self.model = joblib.load(model_file)
+        abs_path = os.path.dirname(os.path.realpath(__file__))
+        with open(abs_path + model_file, 'r') as fin:
+            self.model = pickle.load(fin)
         self.classes_dict = classes_dict
 
     def get_probability_words(self, probability):
