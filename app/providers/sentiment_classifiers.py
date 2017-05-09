@@ -3,18 +3,19 @@ from sklearn.externals import joblib
 files = {
     'binary_movie': 'binary_movie_clf.pkl',
     'bank': 'bank_clf.pkl',
-    'binary_goods': 'binary_goods_clf.pkl'
+    'binary_goods': 'binary_goods_clf.pkl',
 }
 
 binary_dict = {
     -1: 'prediction error',
     0: 'negative',
-    1: 'positive'
+    1: 'positive',
 }
 
 
 class SentimentClassifier():
     def __init__(self, model_file, classes_dict):
+        print()
         self.model = joblib.load(model_file)
         self.classes_dict = classes_dict
 

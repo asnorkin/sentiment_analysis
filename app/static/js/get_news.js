@@ -1,16 +1,22 @@
-/**
- * Created by alexander on 04.05.17.
- */
-// ignore this first line (its fidle mock) and it will return what ever you pass as json:... parameter... consider to change it to your ajax call
+// setup csrf token for all ajax calls
+var csrftoken = $('meta[name=csrf-token]').attr('content');
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+         xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+});
+
 $(function(){
     var url = "/get_vk_json";
 
     function successHandler (data) {
-        drawTable(data)
+        drawTable(data);
     }
 
-    function errorHandler (xhr, status) {
-        alert("Что-то пошло не так");
+    function errorHandler (xhr) {
+        alert(xhr.responseText);
     }
 
     function formHandler(event) {
@@ -25,53 +31,37 @@ $(function(){
         });
     }
 
-    $("#nkvd_form").submit(formHandler);
+    $("#request_form").submit(formHandler);
 })
 
-// $.ajax({
-//     url: '/get_vk_json/',
-//     type: "POST",
-//     data: ,
-//     success: function(data, textStatus, jqXHR) {
-//         // since we are using jQuery, you don't need to parse response
-//         drawTable(data);
-//     }
-// });
 
 function drawTable(data) {
-    var hd = $("<thead>")
-    hd.append($("<tr>"));
-    hd.append($("<th>" + "Паблик" + "</th>"));
-    hd.append($("<th> " + "Публикация" + "</th>"));
-    hd.append($("</tr>"));
-    hd.append($("</thead>"));
-    $("#personDataTable").empty();
-    $("#personDataTable").append(hd);
+    var hd = $("<h4>News:</h><br>");
+    $("#news").empty();
+    $("#news").append(hd);
 
-    var row = $("<tbody>")
-    $("#personDataTable").append(row);
-    for (var source_idx = 0; source_idx < data.length; source_idx++) {
-    		title = data[source_idx].source;
-        posts = data[source_idx].news;
+    news = data.data;
+
+    for (var source_idx = 0; source_idx < news.length; source_idx++) {
+        title = news[source_idx].source;
+        posts = news[source_idx].news;
+
         for (var post_idx = 0; post_idx < posts.length; post_idx++) {
-        		post = posts[post_idx]
-        		drawRow(title, post);
+                post = posts[post_idx];
+                drawRow(title, post);
         }
     }
-    row = $("</tbody>")
-    $("#personDataTable").append(row);
 }
 
 function drawRow(title, post) {
-	var row = $("<tr />")
     if (post.rate == 1) {
-    	row = $("<tr class=\"good\">")
+        row=($("<p> <b>" + title + "</b> &emsp; <span class=\"label label-primary\">Good post</span></p>"));
     } else {
-    	row = $("<tr class=\"bad\">")
+        row=($("<p> <b>" + title + "</b> &emsp; <span class=\"label label-danger\">Bad post</span></p>"));
     }
-    $("#personDataTable").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+    row.append($("<br>"));
 
-    row.append($("<td>" + title + "</td>"));
-    row.append($("<td>" + post.text + "</td>"));
-    row.append($("</tr>"))
+    row.append($("<p>" + post.text + "</p>"));
+    row.append($("<hr>"))
+    $("#news").append(row);
 }
