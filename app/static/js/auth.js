@@ -37,6 +37,11 @@ $(document).ready(function(){
          });
    });
 
+   $('#logged-in-view button_start').click(function(){
+      var url = '/index';
+      window.location.href = url;
+   });
+
    // setup signup view
    $('#signup-view #signup-form').submit(function(e) {
       e.preventDefault();
@@ -78,12 +83,14 @@ function showLoggedIn(username) {
    $("#logged-in-view span").text(username);
    $("#logged-out-view").addClass('hidden');
    $("#logged-in-view").removeClass('hidden');
+   $("#signup-view").addClass('hidden');
 }
 
 function showLoggedout() {
    // show logged out view
    $("#logged-out-view").removeClass('hidden');
    $("#logged-in-view").addClass('hidden');
+   $("#signup-view").removeClass('hidden');
 }
 
 // API calls

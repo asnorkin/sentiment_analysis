@@ -29,9 +29,9 @@ function showLoggedIn(username) {
 
 function showLoggedout() {
    // show logged out view
+   document.body.innerHTML = '';
    var url = '/';
-
-   alert("Hey buddy, you're not authorized!");
+   alert("\t You are not autorized yet! Log In please! \t");
    window.location.href = url;
 }
 

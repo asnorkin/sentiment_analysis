@@ -64,4 +64,4 @@ function drawRow(title, post) {
     row.append($("<p>" + post.text + "</p>"));
     row.append($("<hr>"))
     $("#news").append(row);
-}
+}s
