@@ -8,7 +8,7 @@
 
 {% block css_style %}
 <!-- Put css here !-->
-<link rel="stylesheet" href="../static/vendors/bootstrap-3.3.5-dist/css/bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 {% endblock %}
 
 {% block main_body %}
@@ -42,8 +42,8 @@
    <!-- Logged in view !-->
    <div id='logged-in-view' class='well hidden'>
       <h3> Welcome, <span></span>!</h3>
-      <button type="button" value="LogOutButton" class="btn btn-success">I'm logged in. Log me out</button>
-      <button type="button" value="StartButton" class="btn btn-success"> >> Start >></button>
+      <button type="button" value="LogOutButton" class="btn btn-success glyphicon glyphicon-log-out"> LogOut</button>
+      <button type="button" value="StartButton" class="btn btn-success glyphicon glyphicon-console"> Start</button>
    </div>
 
    <hr>
@@ -85,7 +85,7 @@
 {% block js_btm %}
 <!-- Put javascript here !-->
 
-   <script src="../static/vendors/jquery.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src="../static/js/auth.js"></script>
 
 {% endblock %}

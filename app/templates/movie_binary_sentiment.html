@@ -49,7 +49,7 @@
 
 <footer class="container-fluid">
   <div align=left>
-  <h2>Movie Sentiment</h2>
+  <h3>Sentiment Analyzer</h3>
   </div>
 </footer>
 
@@ -59,7 +59,7 @@
 		  <h4>Navigation</h4>
 		  <br>
 		  <ul class="nav nav-pills nav-stacked">
-			<li class="active"><a href="/">Functions</a></li>
+			<li class="active"><a href="index">Functions</a></li>
 			<li><a href="about.html">About Us</a></li>
 			<li><a href="algo.html">Algorithms</a></li>
 			<li><a href="login.html">Log Out</a></li>
@@ -71,7 +71,7 @@
 			<hr>
 
 			<h4>Enter a movie response</h4>
-			<form role="form" action="{{ url_for('movie_binary_sentiment') }}" method=post>
+			<form role="form" action="{{ url_for('frontend.movie_binary_sentiment') }}" method=post>
 			    <div class="form-group">
 			      <textarea class="form-control" name=text rows="5" required></textarea>
 			    </div>

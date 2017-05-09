@@ -55,7 +55,7 @@ function drawTable(data) {
 
 function drawRow(title, post) {
     if (post.rate == 1) {
-        row=($("<p> <b>" + title + "</b> &emsp; <span class=\"label label-primary\">Good post</span></p>"));
+        row=($("<p> <b>" + title + "</b> &emsp; <span class=\"label label-success\">Good post</span></p>"));
     } else {
         row=($("<p> <b>" + title + "</b> &emsp; <span class=\"label label-danger\">Bad post</span></p>"));
     }
