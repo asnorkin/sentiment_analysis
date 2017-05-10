@@ -1,8 +1,5 @@
-from flask import (Blueprint, render_template, current_app, request,
-                   flash, url_for, redirect, session, abort, jsonify)
-
-from flask_login import (login_required, login_user, current_user,
-                         logout_user, confirm_login, login_fresh)
+from flask import Blueprint, session
+from flask_login import login_required, login_user, current_user, logout_user
 from ..common import response
 from ..extensions import db
 
@@ -83,5 +80,5 @@ def signup():
         login_user(user)
         return response.make_success_resp(msg='You successfully signed up! '
                                           'Please check your email for further verification.')
-    print('!')
+
     return response.make_form_error_resp(form=form)
