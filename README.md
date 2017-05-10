@@ -1,3 +1,3 @@
 # sentiment_analysis
-Running from console:
+Just run it from console:
 python run.py
