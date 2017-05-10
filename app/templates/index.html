@@ -1,0 +1,89 @@
+<!doctype html>
+
+{% block meta %}
+<!-- put meta tags here !-->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+{% endblock %}
+
+<html lang="en">
+<html>
+<head>
+	<title>Choose service</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/check_auth.js') }}"></script>
+
+    <style>
+	/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+	.row.content {height: 700px}
+
+	/* Set gray background color and 100% height */
+	.sidenav {
+	  background-color: #ffffff;
+	  height: 100%;
+	}
+
+	/* Set black background color, white text and some padding */
+	footer {
+	  background-color: #333;
+	  color: white;
+	  padding: 15px;
+	}
+
+	/* On small screens, set height to 'auto' for sidenav and grid */
+	@media screen and (max-width: 767px) {
+	  .sidenav {
+		height: auto;
+		padding: 15px;
+	  }
+	  .row.content {height: auto;}
+	}
+	</style>
+</head>
+
+<body>
+
+<div class="page-header">
+  <h1 style="margin-left: 10px">Sentiment Analyzer</h1>
+  <p style="margin-left: 15px">Scientific tool to analyze web content</p>
+</div>
+
+<div class="container-fluid">
+	<div class="row content">
+		<div class="col-sm-3 sidenav">
+		  <h4>Navigation</h4>
+		  <br>
+		  <ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="index">Functions</a></li>
+			<li><a href="about.html">About Us</a></li>
+			<li><a href="algo.html">Algorithms</a></li>
+			<li><a href="login.html">Log Out</a></li>
+		  </ul><br>
+		</div>
+
+		<div class="col-sm-9">
+			<h4><small>Functions</small></h4>
+			<hr>
+
+			<div align="center" >
+				<a href="goods_binary_sentiment" class="btn btn-default btn-block" role="button">Binary goods analyzer</a>
+				<a href="movie_binary_sentiment" class="btn btn-default btn-block" role="button">Binary movie analyzer</a>
+				<a href="vk_sentiment" class="btn btn-default btn-block" role="button">VK sentiment</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="container-fluid">
+  <div align=center>
+  Designed by Artem Potapov, Alexander Snorkin, Semen Abramov, Shcherbatov Kirill <br>
+  &copy;  2017. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
