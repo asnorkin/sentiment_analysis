@@ -9,7 +9,7 @@ $.ajaxSetup({
 });
 
 $(function(){
-    var url = "/get_vk_json";
+    var url = "/api/analysis/vk";
 
     function successHandler (data) {
         drawTable(data);
@@ -64,4 +64,4 @@ function drawRow(title, post) {
     row.append($("<p>" + post.text + "</p>"));
     row.append($("<hr>"))
     $("#news").append(row);
-}s
+}

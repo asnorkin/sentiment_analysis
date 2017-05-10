@@ -1,12 +1,12 @@
 // setup csrf token for all ajax calls
-// var csrftoken = $('meta[name=csrf-token]').attr('content');
-// $.ajaxSetup({
-//     beforeSend: function(xhr, settings) {
-//         if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
-//          xhr.setRequestHeader("X-CSRFToken", csrftoken);
-//       }
-//     }
-// });
+var csrftoken = $('meta[name=csrf-token]').attr('content');
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+         xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+});
 
 $(document).ready(function(){
    // initial check to see if user is logged in or not

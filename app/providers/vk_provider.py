@@ -19,7 +19,6 @@ class VkFeatureProvider(object):
             try:
                 data = self._vk_api.wall.get(domain=source, count=amount, extended=1, fields='name')
                 self._vk_grace()
-                #print(data)
             except:
                 return {}
 

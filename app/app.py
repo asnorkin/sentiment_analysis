@@ -5,7 +5,7 @@ import config
 from .extensions import db, csrf, login_manager
 from .models import User as user
 from .common import response, COMMON_CONSTANTS
-from .api import auth
+from .api import auth, analysis
 from .frontend import frontend
 
 
@@ -14,6 +14,7 @@ from .frontend import frontend
 # TODO: default blueprints
 DEFAULT_BLUEPRINTS = [
     auth,
+    analysis,
     frontend,
 ]
 

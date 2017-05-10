@@ -16,17 +16,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename='js/check_auth.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/movies.js') }}"></script>
 
     <style>
 	/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-	.row.content {height: 1500px}
+	.row.content {height: 700px}
 
 	/* Set gray background color and 100% height */
 	.sidenav {
-	  background-color: #f1f1f1;
+	  background-color: #ffffff;
 	  height: 100%;
 	}
-
 	/* Set black background color, white text and some padding */
 	footer {
 	  background-color: #333;
@@ -47,11 +47,10 @@
 
 <body>
 
-<footer class="container-fluid">
-  <div align=left>
-  <h3>Sentiment Analyzer</h3>
-  </div>
-</footer>
+<div class="page-header">
+  <h1 style="margin-left: 10px">Sentiment Analyzer</h1>
+  <p style="margin-left: 15px">Scientific tool to analyze web content</p>
+</div>
 
 <div class="container-fluid">
 	<div class="row content">
@@ -67,13 +66,16 @@
 		</div>
 
 		<div class="col-sm-9">
-			<h4><small>Movie binary analyzer</small></h4>
+			<div class="btn-toolbar">
+				<a href="index" class="btn btn-lg  glyphicon glyphicon-menu-left" role="button"> </a>
+				<h4><small> Binary movie analyzer </small></h4>
+			</div>
 			<hr>
 
 			<h4>Enter a movie response</h4>
-			<form role="form" action="{{ url_for('frontend.movie_binary_sentiment') }}" method=post>
+			<form role="form" id="request_form">
 			    <div class="form-group">
-			      <textarea class="form-control" name=text rows="5" required></textarea>
+			      <textarea class="form-control" type="text" name=text rows="5" id="response_text" required></textarea>
 			    </div>
 			    <input type="submit" class="btn btn-primary" value="Evaluate">
 		 	</form>
@@ -81,9 +83,7 @@
 		 	<br>
 
 		 	<h4>Sentiment prediction</h4>
-			<p>
-				{{ prediction_message }}
-			</p>
+			<p id="prediction"> Prediction will be here </p>
 		</div>
 	</div>
 </div>

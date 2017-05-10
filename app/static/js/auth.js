@@ -55,7 +55,12 @@ $(document).ready(function(){
             form.trigger('reset');
             updateAuthStatus();
          }).fail(function(response){
-            alert('Something went wrong');
+            alert('Error during creating account.\n' +
+                  'Please, check the following:\n' +
+                  ' password should be from 6 to 30 characters\n' +
+                  ' username should be from 4 to 30 characters\n' +
+                  '\n' +
+                  'If nothing will help, please email us.');
          });
 
    });
